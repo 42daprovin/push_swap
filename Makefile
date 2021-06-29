@@ -1,7 +1,13 @@
 NAME	= push_swap
 
 SRCS	= srcs/create_a.c \
-		  srcs/push_swap.c
+		  srcs/push_swap.c \
+		  srcs/swap.c \
+		  srcs/push.c \
+		  srcs/test.c \
+		  srcs/utils.c \
+		  srcs/rotate.c \
+		  srcs/rev_rotate.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -15,11 +21,11 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	# make clean -C libft
+	make clean -C libft
 	rm -f ${OBJS}
 
 fclean: clean
-	# make fclean -C libft
+	make fclean -C libft
 	rm -f ${NAME}
 
 re: fclean all
