@@ -7,7 +7,8 @@ SRCS	= srcs/create_a.c \
 		  srcs/test.c \
 		  srcs/utils.c \
 		  srcs/rotate.c \
-		  srcs/rev_rotate.c
+		  srcs/rev_rotate.c \
+		  srcs/quick_sort.c
 
 OBJS	= ${SRCS:.c=.o}
 

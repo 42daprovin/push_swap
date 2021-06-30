@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:32:43 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/29 18:43:33 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:20:16 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 static void	rev_rotate_stack(t_stack **stack)
 {
 	int			save;
+	int			save2;
+	int			save3;
 	t_stack		*stk;
 
 	stk = *stack;
@@ -23,9 +25,12 @@ static void	rev_rotate_stack(t_stack **stack)
 		stk = stk->next;
 	save = stk->data;
 	stk = *stack;
+	save2 = stk->data; 
 	while (stk->next)
 	{
-		stk->next->data = stk->data;
+		save3 = stk->next->data;
+		stk->next->data = save2;
+		save2 = save3;
 		stk = stk->next;
 	}
 	(*stack)->data = save;

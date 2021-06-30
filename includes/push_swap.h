@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 20:04:13 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/29 19:22:56 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/06/30 17:29:19 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,13 @@ void			rev_rotate_a(t_stack **stack_a);
 void			rev_rotate_b(t_stack **stack_b);
 
 static void		rev_rotate_stack(t_stack **stack);
+
+void			quicksort(t_stack **stack_a, t_stack **stack_b, int pivot_pos);
+
+int				get_pivot_element(t_stack *stack, int pivot_pos);
+
+t_stack			*mv_to_b(t_stack **stack_a, t_stack **stack_b, int *i, int *push_counter);
+
+void			put_pivot_in_place(t_stack **stack_a, int pivot);
 
 #endif
