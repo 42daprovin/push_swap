@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 14:27:36 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/30 19:22:50 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/02 14:45:05 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void		quicksort(t_stack **stack_a, t_stack **stack_b, int pivot_pos)
 	stk = *stack_a;
 	while (stk)
 	{
-		if (stk->data < pivot)
+		if (stk->data > pivot)
 			stk = mv_to_b(stack_a, stack_b, &i, &push_counter);
 		else
 		{
@@ -107,11 +107,13 @@ void		quicksort(t_stack **stack_a, t_stack **stack_b, int pivot_pos)
 		}
 	}
 	put_pivot_in_place(stack_a, pivot);
-	if (back_sorted(*stack_a, *stack_b, &pivot_pos) == 1)
-		quicksort(stack_a, stack_b, pivot_pos);
-	if (back_sorted(*stack_a, *stack_b, &pivot_pos) == 2)
-	{
-		mv_to_a(stack_a, stack_b, push_counter);
-		quicksort(stack_a, stack_b, pivot_pos);
-	}
+	while (*stack_b)					//test
+		push_a(stack_a, stack_b);		//test
+	/* if (back_sorted(*stack_a, *stack_b, &pivot_pos) == 1) */
+	/* 	quicksort(stack_a, stack_b, pivot_pos); */
+	/* if (back_sorted(*stack_a, *stack_b, &pivot_pos) == 2) */
+	/* { */
+	/* 	mv_to_a(stack_a, stack_b, push_counter); */
+	/* 	quicksort(stack_a, stack_b, pivot_pos); */
+	/* } */
 }

@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 20:04:13 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/30 17:29:19 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/02 18:53:46 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,15 @@ int				get_pivot_element(t_stack *stack, int pivot_pos);
 t_stack			*mv_to_b(t_stack **stack_a, t_stack **stack_b, int *i, int *push_counter);
 
 void			put_pivot_in_place(t_stack **stack_a, int pivot);
+
+void			swap_algo(t_stack **stack_a, t_stack **stack_b);
+
+void			small_algorithm(t_stack  **stack_a, t_stack **stack_b, int l);
+
+int				find_smallest(t_stack *stk);
+
+void			radix_sort(t_stack **stack_a, t_stack **stack_b);
+
+int				sorted(t_stack *stk);
 
 #endif

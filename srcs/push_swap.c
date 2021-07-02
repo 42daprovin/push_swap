@@ -6,12 +6,36 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:58:27 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/30 19:08:32 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/02 20:05:10 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+int		sorted(t_stack  *stk)
+{
+	while (stk->next)
+	{
+		if (stk->data > stk->next->data)
+			return (0);
+		stk = stk->next;
+	}	
+	return (1);
+}
+
+void	sort_stack(t_stack **stack_a, t_stack **stack_b)
+{
+	int			l;
+
+	if (sorted(*stack_a))
+		return ;
+	l = stacksize(*stack_a);
+	if (l <= 70)
+		small_algorithm(stack_a, stack_b, l);
+	else
+		radix_sort(stack_a, stack_b);
+}
 
 int		main(int ac, char **av)
 {
@@ -26,8 +50,11 @@ int		main(int ac, char **av)
 			exit(1);
 		create_a(av, &stack_a);
 	}
-	quicksort(&stack_a, &stack_b, 0);
-	print_stack(stack_a);
-	ft_printf("B\n");
-	print_stack(stack_b);
+	sort_stack(&stack_a, &stack_b);
+	/* radix_sort(&stack_a, &stack_b); */
+	/* quicksort(&stack_a, &stack_b, 0); */
+	/* print_stack(stack_a); */
+	/* ft_printf("B\n"); */
+	/* print_stack(stack_b); */
+	/* swap_algo(&stack_a, &stack_b); */
 }
