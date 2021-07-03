@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix.c                                            :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:58:31 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/02 20:14:02 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/03 23:41:57 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void		radix_sort(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 
 	vct = set_vct(*stack_a, &l);
-	sort_vct(&vct, l);
+	/* sort_vct(&vct, l); */
+	merge_sort(&vct, 0, l - 1);
 	simplify_numbers(vct, stack_a, l);
 	i = 0;
 	while (!(sorted(*stack_a)))

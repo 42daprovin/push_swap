@@ -11,7 +11,8 @@ SRCS	= srcs/create_a.c \
 		  srcs/quick_sort.c \
 		  srcs/test_algorithm.c \
 		  srcs/small_algorithm.c \
-		  srcs/radix_sort.c
+		  srcs/radix_sort.c \
+		  srcs/merge_sort.c
 
 OBJS	= ${SRCS:.c=.o}
 

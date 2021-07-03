@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:20:57 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/02 17:38:59 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/03 22:20:32 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,33 @@
 /* 		push_a(stack_a, stack_b); */
 /* } */ 
 
-int			find_smallest(t_stack *stk)
-{
-	int			sml;
+/* int			find_smallest(t_stack *stk) */
+/* { */
+/* 	int			sml; */
 
-	sml = stk->data;
-	while (stk)
-	{
-		if (stk->data < sml)
-			sml = stk->data;
-		stk = stk->next;
-	}
-	return (sml);
-}
+/* 	sml = stk->data; */
+/* 	while (stk) */
+/* 	{ */
+/* 		if (stk->data < sml) */
+/* 			sml = stk->data; */
+/* 		stk = stk->next; */
+/* 	} */
+/* 	return (sml); */
+/* } */
 
-void		swap_algo(t_stack **stack_a, t_stack **stack_b)
-{
-	int			smallest;
+/* void		swap_algo(t_stack **stack_a, t_stack **stack_b) */
+/* { */
+/* 	int			smallest; */
 	
-	while (*stack_a)
-	{
-		smallest = find_smallest(*stack_a);
-		put_pivot_in_place(stack_a, smallest);
-		push_b(stack_a, stack_b);
-	}
-	while (*stack_b)
-		push_a(stack_a, stack_b);
-}
+/* 	while (*stack_a) */
+/* 	{ */
+/* 		smallest = find_smallest(*stack_a); */
+/* 		put_pivot_in_place(stack_a, smallest); */
+/* 		push_b(stack_a, stack_b); */
+/* 	} */
+/* 	while (*stack_b) */
+/* 		push_a(stack_a, stack_b); */
+/* } */
 
 /* void		improved_insertion(t_stack **stack_a, t_stack **stack_b) */
 /* { */
