@@ -6,7 +6,7 @@
 /*   By: mgarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 17:32:11 by mgarcia-          #+#    #+#             */
-/*   Updated: 2020/03/12 15:45:02 by mgarcia-         ###   ########.fr       */
+/*   Updated: 2021/07/05 19:28:16 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	eval_flags(const char **format, t_flags *f)
 {
 	f->flags = 0U;
-	while (**format == '#' || **format == '+' || **format == '-' ||
-			**format == ' ' || **format == '0' || **format == '\'')
+	while (**format == '#' || **format == '+' || **format == '-'
+			|| **format == ' ' || **format == '0' || **format == '\'')
 	{
 		if (**format == '#')
 			f->flags |= FLAG_HASH;

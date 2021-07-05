@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 20:04:13 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/03 23:17:55 by david            ###   ########.fr       */
+/*   Updated: 2021/07/05 19:19:29 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ void			radix_sort(t_stack **stack_a, t_stack **stack_b);
 int				sorted(t_stack *stk);
 
 void			merge_sort(int **vct, int p, int r);
+
+int				check_errors(int ac, char ***av);
 
 #endif
