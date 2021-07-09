@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/21 18:26:48 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:36:02 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_stack	*save;
+	t_list	*tmp_lst;
 
-	save = stack;
-	while (save)
+	tmp_lst = NULL;
+	if (lst && f)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		tmp_lst = lst;
+		while (tmp_lst)
+		{
+			f(tmp_lst->content);
+			tmp_lst = tmp_lst->next;
+		}
 	}
 }

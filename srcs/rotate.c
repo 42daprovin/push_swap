@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 18:00:42 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/29 18:28:29 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/08 14:53:53 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,27 @@ static void	rotate_stack(t_stack **stack)
 	stk->data = save;
 }
 
-void		rotate_a(t_stack **stack_a)
+void	rotate_a(t_stack **stack_a)
 {
 	int			l;
 
 	l = stacksize(*stack_a);
-	if  (l >= 2)
+	if (l >= 2)
 		rotate_stack(stack_a);
 	ft_printf("ra\n");
 }
 
-void		rotate_b(t_stack **stack_b)
+void	rotate_b(t_stack **stack_b)
 {
 	int			l;
 
 	l = stacksize(*stack_b);
-	if  (l >= 2)
+	if (l >= 2)
 		rotate_stack(stack_b);
 	ft_printf("rb\n");
 }
 
-
-void		rotate_a_b(t_stack **stack_a, t_stack **stack_b)
+void	rotate_a_b(t_stack **stack_a, t_stack **stack_b)
 {
 	int			save;
 	t_stack		*stk;

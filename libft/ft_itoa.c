@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/14 16:28:43 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:33:38 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	*ft_itoa(int n)
 {
-	t_stack	*save;
+	int				i;
+	int				l;
+	unsigned int	sup;
+	char			*s;
 
-	save = stack;
-	while (save)
+	l = ft_lengthnumb(n);
+	s = (char *)ft_calloc(sizeof(char), l + 1);
+	if (!s)
+		return (NULL);
+	if (n < 0)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		s[0] = '-';
+		sup = -1 * n;
 	}
+	else
+		sup = n;
+	i = 1;
+	while (i <= l && s[l - i] != '-')
+	{
+		s[l - i] = sup % 10 + 48;
+		sup = sup / 10;
+		i++;
+	}
+	return (s);
 }

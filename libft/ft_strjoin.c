@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/10 20:55:34 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:40:12 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_stack	*save;
+	int		len1;
+	int		len2;
+	int		i;
+	char	*join;
 
-	save = stack;
-	while (save)
+	if (!s1)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	join = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (join == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len1)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		join[i] = s1[i];
+		i++;
 	}
+	while (i <= len1 + len2)
+	{
+		join[i] = s2[i - len1];
+		i++;
+	}
+	return (join);
 }

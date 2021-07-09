@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/14 18:09:28 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:42:06 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_stack	*save;
+	unsigned int	i;
+	unsigned int	l;
+	char			*sol;
 
-	save = stack;
-	while (save)
+	if (!s)
+		return (NULL);
+	l = ft_strlen(s);
+	sol = (char *)ft_calloc(sizeof(char), (l + 1));
+	if (sol == NULL)
+		return (NULL);
+	i = 0;
+	while (i < l)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		sol[i] = f(i, s[i]);
+		i++;
 	}
+	return (sol);
 }

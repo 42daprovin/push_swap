@@ -6,18 +6,18 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 20:04:13 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/05 19:19:29 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/08 15:19:40 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int					data;
 	struct s_stack		*next;
@@ -55,13 +55,14 @@ void			quicksort(t_stack **stack_a, t_stack **stack_b, int pivot_pos);
 
 int				get_pivot_element(t_stack *stack, int pivot_pos);
 
-t_stack			*mv_to_b(t_stack **stack_a, t_stack **stack_b, int *i, int *push_counter);
+t_stack			*mv_to_b(t_stack **stack_a, t_stack **stack_b, int *i,
+					int *push_counter);
 
 void			put_pivot_in_place(t_stack **stack_a, int pivot);
 
 void			swap_algo(t_stack **stack_a, t_stack **stack_b);
 
-void			small_algorithm(t_stack  **stack_a, t_stack **stack_b, int l);
+void			small_algorithm(t_stack **stack_a, t_stack **stack_b, int l);
 
 int				find_smallest(t_stack *stk);
 

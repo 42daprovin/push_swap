@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/09 20:21:26 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:43:14 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	t_stack	*save;
+	size_t	i;
+	size_t	j;
+	size_t	l;
 
-	save = stack;
-	while (save)
+	l = ft_strlen(needle);
+	i = 0;
+	j = 0;
+	while (haystack[i] && i < n && j < l)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		j = 0;
+		while (haystack[i + j] == needle[j] && i + j < n && haystack[i + j])
+			j++;
+		i++;
 	}
+	if (l == 0)
+		return ((char *)haystack);
+	if (j == l)
+		return ((char *)haystack + i - 1);
+	return (NULL);
 }

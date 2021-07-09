@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_countstrings.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/11 17:28:49 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:27:30 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	ft_countstrings(char const *s, char c)
 {
-	t_stack	*save;
+	int		count;
+	int		i;
 
-	save = stack;
-	while (save)
+	count = 0;
+	i = 0;
+	if (s[i] != c && s[i] != 0)
+		count++;
+	while (s[i])
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		while (s[i] == c && s[i + 1] != 0)
+		{
+			if (s[i + 1] != c && s[i + 1] != 0)
+				count++;
+			i++;
+		}
+		i++;
 	}
+	return (count);
 }

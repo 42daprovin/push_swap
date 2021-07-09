@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_isinstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/11 13:01:30 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:32:22 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	ft_isinstr(char c, char const *s2)
 {
-	t_stack	*save;
+	int	i;
 
-	save = stack;
-	while (save)
+	i = 0;
+	while (s2[i])
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		if (c == s2[i])
+			return (1);
+		i++;
 	}
+	return (0);
 }

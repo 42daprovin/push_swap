@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/08 18:28:51 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:41:08 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	t_stack	*save;
+	size_t	i;
+	size_t	l;
 
-	save = stack;
-	while (save)
+	l = ft_strlen(src);
+	i = 0;
+	if (l == 0)
+		dst[i] = src[i];
+	while (i < dstsize - 1 && i < ft_strlen(src) && dstsize != 0)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		dst[i] = src[i];
+		i++;
 	}
+	if (i > 0 && ft_strlen(src) > 0)
+		dst[i] = 0;
+	return (l);
 }

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/09 19:15:45 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:43:38 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_stack	*save;
+	int		i;
+	int		l;
+	char	*p;
 
-	save = stack;
-	while (save)
+	l = ft_strlen(s);
+	p = NULL;
+	i = 0;
+	while (i < l + 1)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		if (s[i] == (char)c)
+			p = (char *)s + i;
+		i++;
 	}
+	return (p);
 }

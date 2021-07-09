@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_doingmalloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/11 17:48:46 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:30:17 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	ft_doingmalloc(char **split, char const *s, char c)
 {
-	t_stack	*save;
+	int		i;
+	int		j;
+	int		count;
 
-	save = stack;
-	while (save)
+	i = -1;
+	count = 0;
+	while (s[++i])
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		j = i;
+		while (s[i] != c && s[i] != 0)
+			i++;
+		if (j != i)
+		{
+			split[count] = (char *)malloc(sizeof(char) * (i - j + 1));
+			if (split[count] == NULL)
+			{
+				ft_doingfree(split, count);
+				return (1);
+			}
+			split[count][i - j] = 0;
+			count++;
+			i--;
+		}
 	}
+	return (0);
 }

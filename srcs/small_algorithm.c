@@ -6,24 +6,24 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 15:02:27 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/02 16:32:34 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/08 14:56:46 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void		sort_2(t_stack **stack_a)
+void	sort_2(t_stack **stack_a)
 {
 	if ((*stack_a)->data > (*stack_a)->next->data)
 		swap_a(stack_a);
-	return ;	
+	return ;
 }
 
-void		sort_3(t_stack **stack_a)
+void	sort_3(t_stack **stack_a)
 {
 	t_stack		*stk;
-	
+
 	stk = *stack_a;
 	if (stk->data > stk->next->data && stk->data > stk->next->next->data)
 	{
@@ -48,7 +48,7 @@ void		sort_3(t_stack **stack_a)
 		swap_a(stack_a);
 }
 
-void		insert_in_a(t_stack **stack_a, t_stack **stack_b)
+void	insert_in_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack		*stk;
 	int			pivot;
@@ -61,16 +61,16 @@ void		insert_in_a(t_stack **stack_a, t_stack **stack_b)
 	{
 		if (pivot == in_element && stk->data > in_element)
 			pivot = stk->data;
-		if  (stk->data < pivot && stk->data > in_element)
-			pivot =  stk->data;
+		if (stk->data < pivot && stk->data > in_element)
+			pivot = stk->data;
 		stk = stk->next;
 	}
 	if (pivot != in_element)
 		put_pivot_in_place(stack_a, pivot);
-	push_a(stack_a, stack_b);	
+	push_a(stack_a, stack_b);
 }
 
-void		sort_using_3(t_stack **stack_a, t_stack **stack_b)
+void	sort_using_3(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack		*stk;
 	int			beg;
@@ -91,7 +91,7 @@ void		sort_using_3(t_stack **stack_a, t_stack **stack_b)
 	put_pivot_in_place(stack_a, beg);
 }
 
-void		small_algorithm(t_stack **stack_a, t_stack **stack_b, int l)
+void	small_algorithm(t_stack **stack_a, t_stack **stack_b, int l)
 {
 	if (l == 1)
 		return ;

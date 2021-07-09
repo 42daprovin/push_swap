@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_doingfree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/16 14:59:01 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:30:36 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	ft_doingfree(char **split, int count)
 {
-	t_stack	*save;
+	int	i;
 
-	save = stack;
-	while (save)
+	i = 0;
+	while (i < count)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		free(split[i]);
+		i++;
 	}
+	free(split);
 }

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/10 17:32:11 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:47:29 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_stack	*save;
+	size_t	i;
+	int		dif;
 
-	save = stack;
-	while (save)
+	dif = 0;
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (-1);
+	if (*(unsigned char *)s1 == 0 || *(unsigned char *)s2 == 0)
+		return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	while (i < n)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		if (*(unsigned char *)(s1 + i) != *(unsigned char *)(s2 + i))
+			return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
+		i++;
 	}
+	return (dif);
 }

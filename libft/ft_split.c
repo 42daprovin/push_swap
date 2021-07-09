@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/11 17:13:17 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:35:48 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	**ft_split(char const *s, char c)
 {
-	t_stack	*save;
+	int		count;
+	char	**split;
 
-	save = stack;
-	while (save)
-	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
-	}
+	if (!s)
+		return (NULL);
+	count = ft_countstrings(s, c);
+	split = (char **)malloc(sizeof(char *) * (count + 1));
+	if (split == NULL)
+		return (NULL);
+	split[count] = NULL;
+	if (ft_doingmalloc(split, s, c) == 1)
+		return (NULL);
+	ft_fillstr(split, s, c);
+	return (split);
 }

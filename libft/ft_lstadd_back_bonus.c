@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/18 06:19:09 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:35:38 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_stack	*save;
+	t_list	*list;
 
-	save = stack;
-	while (save)
+	list = *alst;
+	if (!list)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		*alst = new;
+		return ;
 	}
+	while (list->next)
+		list = list->next;
+	list->next = new;
 }

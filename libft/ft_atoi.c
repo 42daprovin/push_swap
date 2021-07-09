@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/09 19:44:04 by daprovin          #+#    #+#             */
+/*   Updated: 2020/02/10 18:47:21 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+long	ft_atoi(const char *str)
 {
-	t_stack	*save;
+	int		i;
+	int		sig;
+	long	n;
 
-	save = stack;
-	while (save)
+	i = 0;
+	sig = 1;
+	n = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		if (str[i] == '-')
+			sig = -1 * sig;
+		i++;
 	}
+	while (ft_isdigit(str[i]))
+	{
+		n = 10 * n + (str[i++] - 48);
+		if (n < 0 && sig == -1)
+			return (0);
+		if (n < 0 && sig == 1)
+			return (-1);
+	}
+	return (sig * n);
 }

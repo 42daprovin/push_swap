@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/07 14:21:47 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:50:54 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_stack	*save;
+	char	a;
+	size_t	i;
 
-	save = stack;
-	while (save)
+	a = (unsigned char)c;
+	i = 0;
+	while (i < len)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		*((unsigned char *)(b + i)) = a;
+		i++;
 	}
+	return (b);
 }

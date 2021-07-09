@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/10 15:05:35 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:50:32 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_stack	*save;
+	size_t	i;
+	size_t	ol;
 
-	save = stack;
-	while (save)
+	ol = 0;
+	i = 0;
+	while (i < len)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		if (dst == src + i)
+			ol = i;
+		i++;
 	}
+	if (ol == 0)
+		return (ft_memcpy(dst, src, len));
+	i = 0;
+	while (i < len)
+	{
+		*(char *)(dst + len - 1 - i) = *(char *)(src + len - 1 - i);
+		i++;
+	}
+	return (dst);
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lengthnumb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/14 17:03:03 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:34:17 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	ft_lengthnumb(int n)
 {
-	t_stack	*save;
+	int	l;
 
-	save = stack;
-	while (save)
+	l = 0;
+	if (n <= 0)
+		l++;
+	while (n != 0)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		n = n / 10;
+		l++;
 	}
+	return (l);
 }

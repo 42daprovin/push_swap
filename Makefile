@@ -8,8 +8,6 @@ SRCS	= srcs/create_a.c \
 		  srcs/utils.c \
 		  srcs/rotate.c \
 		  srcs/rev_rotate.c \
-		  srcs/quick_sort.c \
-		  srcs/test_algorithm.c \
 		  srcs/small_algorithm.c \
 		  srcs/radix_sort.c \
 		  srcs/merge_sort.c \

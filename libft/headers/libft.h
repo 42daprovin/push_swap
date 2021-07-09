@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:13:42 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/09 16:58:48 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/09 16:59:21 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,5 @@ int				ft_printhex(t_form *info, va_list args);
 int				ft_printf(const char *format, ...);
 void			ft_suport(int *i, const char **format);
 int				ft_printadr(t_form *info, va_list args);
-int				ft_strcmp(const char *str1, const char *str2);
 
 #endif

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/18 01:55:18 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:49:03 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+int	ft_lstsize(t_list *lst)
 {
-	t_stack	*save;
+	int	i;
 
-	save = stack;
-	while (save)
+	i = 0;
+	while (lst)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		i++;
+		lst = lst->next;
 	}
+	return (i);
 }

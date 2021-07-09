@@ -6,20 +6,21 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 17:58:31 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/05 19:39:28 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/08 14:50:13 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-int			*set_vct(t_stack *stk, int *l)
+int	*set_vct(t_stack *stk, int *l)
 {
 	int		i;
 	int		*vct;
 
 	*l = stacksize(stk);
-	if (!(vct = (int*)malloc((sizeof(int) * (*l)))))
+	vct = (int *)malloc((sizeof(int) * (*l)));
+	if (vct == NULL)
 		exit(1);
 	i = 0;
 	while (stk)
@@ -31,7 +32,7 @@ int			*set_vct(t_stack *stk, int *l)
 	return (vct);
 }
 
-void		sort_vct(int **vct, int l)
+void	sort_vct(int **vct, int l)
 {
 	int		save;
 	int		i;
@@ -41,7 +42,7 @@ void		sort_vct(int **vct, int l)
 	while (i < l)
 	{
 		j = i;
-		while (j <  l)
+		while (j < l)
 		{
 			if ((*vct)[i] > (*vct)[j])
 			{
@@ -51,11 +52,11 @@ void		sort_vct(int **vct, int l)
 			}
 			j++;
 		}
-		i++;	
+		i++;
 	}
 }
 
-void		simplify_numbers(int * vct, t_stack **stack_a, int l)
+void	simplify_numbers(int *vct, t_stack **stack_a, int l)
 {
 	t_stack	*stk;
 	int		i;
@@ -69,7 +70,7 @@ void		simplify_numbers(int * vct, t_stack **stack_a, int l)
 			if (stk->data == vct[i])
 			{
 				stk->data = i;
-				break ;  
+				break ;
 			}
 			i++;
 		}
@@ -77,7 +78,7 @@ void		simplify_numbers(int * vct, t_stack **stack_a, int l)
 	}
 }
 
-void		radix_sort(t_stack **stack_a, t_stack **stack_b)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int		*vct;
 	int		l;
@@ -85,7 +86,6 @@ void		radix_sort(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 
 	vct = set_vct(*stack_a, &l);
-	/* sort_vct(&vct, l); */
 	merge_sort(&vct, 0, l - 1);
 	simplify_numbers(vct, stack_a, l);
 	i = 0;

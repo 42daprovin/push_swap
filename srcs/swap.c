@@ -6,14 +6,14 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:23:28 by daprovin          #+#    #+#             */
-/*   Updated: 2021/06/29 17:58:57 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/08 14:58:41 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-void		swap_a(t_stack **stack_a)
+void	swap_a(t_stack **stack_a)
 {
 	int		save;
 	int		l;
@@ -22,7 +22,7 @@ void		swap_a(t_stack **stack_a)
 	if (l < 2)
 	{
 		ft_printf("sa\n");
-		return;
+		return ;
 	}
 	save = (*stack_a)->data;
 	(*stack_a)->data = (*stack_a)->next->data;
@@ -30,7 +30,7 @@ void		swap_a(t_stack **stack_a)
 	ft_printf("sa\n");
 }
 
-void		swap_b(t_stack **stack_b)
+void	swap_b(t_stack **stack_b)
 {
 	int		save;
 	int		l;
@@ -39,7 +39,7 @@ void		swap_b(t_stack **stack_b)
 	if (l < 2)
 	{
 		ft_printf("sb\n");
-		return;
+		return ;
 	}
 	save = (*stack_b)->data;
 	(*stack_b)->data = (*stack_b)->next->data;
@@ -47,9 +47,9 @@ void		swap_b(t_stack **stack_b)
 	ft_printf("sb\n");
 }
 
-void		swap_a_b(t_stack **stack_a, t_stack **stack_b)
+void	swap_a_b(t_stack **stack_a, t_stack **stack_b)
 {
-	int save;
+	int	save;
 	int	l;
 
 	l = stacksize(*stack_a);

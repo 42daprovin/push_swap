@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_fillstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/16 14:29:55 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:31:00 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	ft_fillstr(char **split, char const *s, char c)
 {
-	t_stack	*save;
+	int	count;
+	int	i;
+	int	j;
 
-	save = stack;
-	while (save)
+	i = 0;
+	count = 0;
+	while (s[i])
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		j = 0;
+		while (s[i] != c && s[i] != 0)
+			split[count][j++] = s[i++];
+		if (j != 0)
+		{
+			count++;
+			i--;
+		}
+		i++;
 	}
 }

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/10 20:36:33 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 16:49:04 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_stack	*save;
+	size_t	i;
+	char	*sub;
 
-	save = stack;
-	while (save)
+	if (!s)
+		return (NULL);
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (sub == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len && start + i < ft_strlen(s))
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		sub[i] = s[start + i];
+		i++;
 	}
+	sub[i] = 0;
+	return (sub);
 }

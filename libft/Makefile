@@ -1,101 +1,97 @@
-NAME	= libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: daprovin <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/09 17:02:28 by daprovin          #+#    #+#              #
+#    Updated: 2021/07/09 16:57:55 by daprovin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-LIBFT_F	= ft_strlen.c \
-		  ft_strcat.c \
-		  ft_strncat.c \
-		  ft_strlcat.c \
-		  ft_strcmp.c \
-		  ft_strncmp.c \
-		  ft_strcpy.c \
-		  ft_strncpy.c \
-		  ft_strlcpy.c \
-		  ft_atoi.c \
-		  ft_strdup.c \
-		  ft_strstr.c \
-		  ft_strnstr.c \
-		  ft_strchr.c \
-		  ft_strrchr.c \
-		  ft_isalpha.c \
-		  ft_isdigit.c \
-		  ft_isalnum.c \
-		  ft_isascii.c \
-		  ft_isprint.c \
-		  ft_toupper.c \
-		  ft_tolower.c \
-		  ft_calloc.c \
-		  ft_strrev.c \
-		  ft_memset.c \
-		  ft_bzero.c \
-		  ft_memcpy.c \
-		  ft_memccpy.c \
-		  ft_memchr.c \
-		  ft_memcmp.c \
-		  ft_memmove.c \
-		  ft_strjoin.c \
-		  ft_putchar.c \
-		  ft_putchar_fd.c \
-		  ft_putstr.c \
-		  ft_putstr_fd.c \
-		  ft_putendl.c \
-		  ft_putendl_fd.c \
-		  ft_putnbr.c \
-		  ft_putnbr_fd.c \
-		  ft_strmapi.c \
-		  ft_split.c \
-		  ft_itoa.c \
-		  ft_strrev.c \
-		  ft_substr.c \
-		  ft_strtrim.c \
-		ft_lstnew_bonus.c \
-		ft_lstadd_back_bonus.c \
-		ft_lstadd_front_bonus.c \
-		ft_lstclear_bonus.c \
-		ft_lstdelone_bonus.c \
-		ft_lstiter_bonus.c \
-		ft_lstlast_bonus.c \
-		ft_lstmap_bonus.c \
-		ft_lstsize_bonus.c
+NAME := libft.a
 
-PRINTF_F = ft_printf.c \
-		   ft_vprintf.c \
-		   flag_parsing.c \
-		   text_format.c \
-		   integer_format.c \
-		   float_format.c \
-		   conversions.c \
-		   utils.c \
-		   float_utils.c
+OBJS := \
+	ft_memset.o \
+	ft_putchar_fd.o \
+	ft_putendl_fd.o \
+	ft_putnbr_fd.o \
+	ft_putstr_fd.o \
+	ft_strlcat.o \
+	ft_strlcpy.o \
+	ft_strlen.o \
+	ft_strchr.o \
+	ft_strrchr.o \
+	ft_strncmp.o \
+	ft_atoi.o \
+	ft_isdigit.o \
+	ft_isspace.o \
+	ft_strnstr.o \
+	ft_isalpha.o \
+	ft_isalnum.o \
+	ft_isascii.o \
+	ft_isprint.o \
+	ft_toupper.o \
+	ft_tolower.o \
+	ft_bzero.o \
+	ft_memcpy.o \
+	ft_memccpy.o \
+	ft_memmove.o \
+	ft_memchr.o \
+	ft_memcmp.o \
+	ft_calloc.o \
+	ft_strdup.o \
+	ft_substr.o \
+	ft_strjoin.o \
+	ft_isinstr.o \
+	ft_strtrim.o \
+	ft_countstrings.o \
+	ft_doingmalloc.o \
+	ft_split.o \
+	ft_lengthnumb.o \
+	ft_itoa.o \
+	ft_strmapi.o \
+	ft_fillstr.o \
+	ft_doingfree.o \
+	ft_printf.o \
+	ft_printf_utils.o \
+	ft_printing_types.o \
+	ft_printing_type_uint.o \
+	ft_printing_type_point.o \
+	ft_printing_type_int.o \
+	ft_printing_type_hex.o \
+	ft_strcmp.o
 
-GET_NEXT_LINE = get_next_line.c \
-	   	get_next_line_utils.c	
+OBJB := \
+	ft_lstnew_bonus.o \
+	ft_lstadd_front_bonus.o \
+	ft_lstsize_bonus.o \
+	ft_lstlast_bonus.o \
+	ft_lstadd_back_bonus.o \
+	ft_lstdelone_bonus.o \
+	ft_lstclear_bonus.o \
+	ft_lstiter_bonus.o \
+	ft_lstmap_bonus.o \
 
+GFLAGS := -Wall -Werror -Wextra
+HEAD := headers
 
-SRCS	=  $(addprefix srcs/libft/, $(LIBFT_F)) $(addprefix srcs/ft_printf/, $(PRINTF_F)) $(addprefix srcs/get_next_line/, $(GET_NEXT_LINE))
+all: $(NAME)
 
-OBJS	= ${SRCS:.c=.o}
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
-CC		= gcc -g
+bonus : $(OBJS) $(OBJB)
+	ar rc $(NAME) $(OBJB) $(OBJS)
 
-RM		= rm -f
+%.o: %.c
+	gcc $(GFLAGS) -I $(HEAD) -c $< -o $@
 
-CFLAGS	= -Wall -Wextra -Werror -I includes 
+clean :
+	rm -f $(OBJS) $(OBJB)
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+fclean : clean
+	rm -f $(NAME)
 
-${NAME}:	${OBJS}
-			ar rc ${NAME} ${OBJS}
-			ranlib ${NAME}
-
-all:		${NAME}
-
-clean:
-			${RM} ${OBJS}
-
-
-fclean:		clean
-			${RM} ${NAME}
-
-re:			fclean all
-
-.PHONY:		all clean fclean re
+re : fclean all

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/18 08:20:20 by daprovin          #+#    #+#             */
+/*   Updated: 2021/07/09 15:34:56 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_stack	*save;
+	t_list	*tmp_list;
 
-	save = stack;
-	while (save)
+	if (*lst && del)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		while (*lst)
+		{
+			del((*lst)->content);
+			tmp_list = *lst;
+			*lst = (*lst)->next;
+			free(tmp_list);
+		}
+		lst = NULL;
 	}
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 17:23:26 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:00:40 by daprovin         ###   ########.fr       */
+/*   Created: 2019/10/18 08:03:29 by daprovin          #+#    #+#             */
+/*   Updated: 2019/10/21 18:51:20 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "push_swap.h"
 
-void	print_stack(t_stack *stack)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_stack	*save;
-
-	save = stack;
-	while (save)
+	if (lst)
 	{
-		ft_printf("%d\n", save->data);
-		save = save->next;
+		del(lst->content);
+		free(lst);
+		lst = NULL;
 	}
 }
