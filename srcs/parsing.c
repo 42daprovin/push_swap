@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 17:43:53 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/05 20:11:25 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/09 17:11:10 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static char	**change_av(char *str)
 	char	**av;
 
 	av = ft_split(str, ' ');
+	if (!av)
+		exit(1);
 	return (av);
 }
 

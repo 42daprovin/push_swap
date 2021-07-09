@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:58:27 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/05 20:16:53 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/09 17:22:40 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int ac, char **av)
 
 	if (check_errors(ac, &av))
 	{
-		ft_printf("Error\n");
-		return (0);
+		write(2, "Error\n", 6);
+		return (1);
 	}
 	if (ac > 1)
 	{
