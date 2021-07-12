@@ -14,13 +14,14 @@ SRCS	= srcs/create_a.c \
 		  srcs/parsing.c
 
 OBJS	= ${SRCS:.c=.o}
+FALGS	= -Wall -Werror -Wextra
 
 .c.o:
-	gcc -c -I includes $< -o ${<:.c=.o}
+	gcc -Wall -Werror -Wextra -c -I includes $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
 	make -C libft
-	gcc ${OBJS} libft/libft.a -o ${NAME}
+	gcc -Wall -Werror -Wextra ${OBJS} libft/libft.a -o ${NAME}
 
 all: ${NAME}
 

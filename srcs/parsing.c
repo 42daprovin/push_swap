@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 17:43:53 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/09 17:11:10 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:56:45 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static char	**change_av(char *str)
 static int	not_int(char *av)
 {
 	int		neg;
-	int		i;
 
 	neg = 0;
 	if (*av == '-')
@@ -94,8 +93,6 @@ static int	check_duplicates(char **av)
 
 int	check_errors(int ac, char ***av)
 {
-	if (ac == 1)
-		return (1);
 	if (ac == 2)
 		*av = change_av((*av)[1]);
 	if (check_numbers(*av))

@@ -6,12 +6,35 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:58:27 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/09 17:22:40 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:49:18 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
+
+void doing_free(t_stack **a, char ***av, int ac)
+{
+	int		i;
+	t_stack	*tmp;
+
+	if (ac == 2)
+	{
+		i = 0;
+		while ((*av)[i])
+		{
+			free((*av)[i]);
+			i++;
+		}
+		free(*av);
+	}	
+	while (*a)
+	{
+		tmp = *a;
+		*a = (*a)->next;
+		free(tmp);
+	}
+}
 
 int	sorted(t_stack *stk)
 {
@@ -42,6 +65,8 @@ int	main(int ac, char **av)
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 
+	if (ac == 1)
+		return (0);
 	if (check_errors(ac, &av))
 	{
 		write(2, "Error\n", 6);
@@ -56,5 +81,6 @@ int	main(int ac, char **av)
 		create_a(av, &stack_a);
 	}
 	sort_stack(&stack_a, &stack_b);
+	doing_free(&stack_a, &av, ac);
 	return (0);
 }
