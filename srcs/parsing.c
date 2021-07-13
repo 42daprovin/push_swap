@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 17:43:53 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/12 18:56:45 by david            ###   ########.fr       */
+/*   Updated: 2021/07/14 00:18:02 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,20 @@ static int	not_int(char *av)
 	return (0);
 }
 
-static int	check_numbers(char **av)
+static int	check_numbers(char **av, int n)
 {
 	int		i;
 	int		j;
 
-	if (ft_isdigit(*av[0]) || *av[0] == '-')
-		i = 0;
-	else
-		i = 1;
+	i = n;
 	while (av[i])
 	{
 		j = 0;
 		while (av[i][j])
 		{
 			if (!(ft_isdigit(av[i][j]) || (j == 0 && av[i][j] == '-')))
+				return (1);
+			if (av[i][0] == '-' && av[i][1] == '\0')
 				return (1);
 			j++;
 		}
@@ -71,12 +70,12 @@ static int	check_numbers(char **av)
 	return (0);
 }
 
-static int	check_duplicates(char **av)
+static int	check_duplicates(char **av, int n)
 {
 	int		i;
 	int		j;
 
-	i = 0;
+	i = n;
 	while (av[i])
 	{
 		j = 0;
@@ -93,11 +92,19 @@ static int	check_duplicates(char **av)
 
 int	check_errors(int ac, char ***av)
 {
+	int	i;
+
+	i = 1;
 	if (ac == 2)
+	{
 		*av = change_av((*av)[1]);
-	if (check_numbers(*av))
+		i = 0;
+	}
+	if (**av == NULL)
 		return (1);
-	if (check_duplicates(*av))
+	if (check_numbers(*av, i))
+		return (1);
+	if (check_duplicates(*av, i))
 		return (1);
 	return (0);
 }
