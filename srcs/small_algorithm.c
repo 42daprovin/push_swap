@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 15:02:27 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 14:56:46 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/14 17:33:02 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	insert_in_a(t_stack **stack_a, t_stack **stack_b)
 	if (pivot != in_element)
 		put_pivot_in_place(stack_a, pivot);
 	push_a(stack_a, stack_b);
+	put_beg_in_place(stack_a);
 }
 
 void	sort_using_3(t_stack **stack_a, t_stack **stack_b)

@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 17:48:50 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/08 15:14:22 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/14 17:32:16 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,20 @@ void	put_pivot_in_place(t_stack **stack_a, int pivot)
 	else
 		while (pos++ <= l)
 			rev_rotate_a(stack_a);
+}
+
+void	put_beg_in_place(t_stack **stack_a)
+{
+	int		beg;
+	t_stack	*stk;
+
+	stk = *stack_a;
+	beg = stk->data;
+	while (stk)
+	{
+		if (stk->data < beg)
+			beg = stk->data;
+		stk = stk->next;
+	}
+	put_pivot_in_place(stack_a, beg);
 }
