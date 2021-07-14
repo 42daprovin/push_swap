@@ -6,7 +6,7 @@
 /*   By: daprovin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:58:27 by daprovin          #+#    #+#             */
-/*   Updated: 2021/07/13 16:44:34 by daprovin         ###   ########.fr       */
+/*   Updated: 2021/07/14 01:59:22 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	main(int ac, char **av)
 	if (check_errors(ac, &av))
 	{
 		write(2, "Error\n", 6);
+		stack_a = NULL;
+		doing_free(&stack_a, &av, ac);
 		return (1);
 	}
 	if (ac > 1)
